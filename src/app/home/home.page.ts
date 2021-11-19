@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public alertController: AlertController,) {}
+  constructor(public alertController: AlertController,public toastController: ToastController) {}
 
   async deleteContato() {
     const alert = await this.alertController.create({
@@ -24,13 +27,23 @@ export class HomePage {
         }, {
           text: 'SIM, Deletar',
           handler: () => {
-            console.log('Deletado');
+            this.presentToastDeletado();
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  async presentToastDeletado() {
+    const toast = await this.toastController.create({
+      message: 'Deletado com sucesso!',
+      duration: 2000,
+      color: 'danger',
+      position: "top"
+    });
+    toast.present();
   }
 
 }
