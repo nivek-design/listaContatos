@@ -1,144 +1,45 @@
 
-<ion-header [translucent]="true">
-  <div class="flex-center">
-  <ion-toolbar>
-    <ion-title>
-      Contatos
-    </ion-title>
-  </ion-toolbar>
-</div>
-</ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color='dark'>
 
 
   <ion-header collapse="condense">
 
-    <ion-toolbar>
-      <ion-title size="large">Contatos</ion-title>
+    <ion-toolbar color="dark">
+      <ion-title size="large" position="start">{{contato}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-card >
-    <ion-list color="dark" >
-    <ion-item-sliding>
-      <ion-item color="dark">
+    <ion-list >
+
+
+    <ion-item-sliding *ngFor="let contatos of listaContatos">
+      <ion-item color="black" [routerLink]="contatos.pagina">
         <ion-avatar slot="start">
-          <img src="https://scontent.fumu2-2.fna.fbcdn.net/v/t1.6435-9/49274263_2106440106108826_2590806147908763648_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFXiqliyTvXZ2I1z3CEEL-YMDFlaKe0It4wMWVop7Qi3liLOYI-B0UekWaOsCfxq4kGvXRQnbxYpn3MdXFL40Sl&_nc_ohc=v6AyKtVK2gcAX9m--nK&_nc_ht=scontent.fumu2-2.fna&oh=da60eaa1f57dbc2a21ad87bf1f590fcc&oe=61BA7A6B"/>
+          <img [src]="contatos.foto"
+          />
         </ion-avatar>
         <ion-label>
-          <h1>Kevin</h1>
-          <p>araujo</p>
+          <h1>{{contatos.nome}}</h1>
+          <p>{{contatos.sobrenome}}</p>
         </ion-label>
       </ion-item>
-      <ion-item-options side="end"><ion-item-option color="danger" (click)="deleteContato()">Delete</ion-item-option></ion-item-options>
+      <ion-item-options side="end"><ion-item-option color="verdefluorescente" (click)="deleteContato()">Delete</ion-item-option></ion-item-options>
     </ion-item-sliding>
-    </ion-list>
 
-    <ion-list>
-    <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="data:image/jpeg;base64,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"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Laura</h1>
-          <p>Rossini</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end"><ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option></ion-item-options>
-    </ion-item-sliding>
-    </ion-list>
 
-    <ion-list>
-    <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="https://image.shutterstock.com/image-photo/cheerful-funny-young-brunette-woman-600w-1929449591.jpg"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Vera</h1>
-          <p>Lucia</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end"><ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option></ion-item-options>
-    </ion-item-sliding>
     </ion-list>
-
-    <ion-list>
-    <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJD0T_cDLCWR149hnX_-NAgBHcxVNr-vSWng&usqp=CAU"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Francisco</h1>
-          <p>Pereira</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end"><ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option></ion-item-options>
-    </ion-item-sliding>
-    </ion-list>
-
-    <ion-list>
-      <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeoktTc3yCNfoP9xUxNbytvxSM9tkCsd9WDQ&usqp=CAU"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Joao</h1>
-          <p>Alencar</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    </ion-list>
-
-    <ion-list>
-      <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeoktTc3yCNfoP9xUxNbytvxSM9tkCsd9WDQ&usqp=CAU"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Joyce</h1>
-          <p>Kellen</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    </ion-list>
-
-    <ion-list>
-      <ion-item-sliding>
-      <ion-item color="dark" >
-        <ion-avatar slot="start">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeoktTc3yCNfoP9xUxNbytvxSM9tkCsd9WDQ&usqp=CAU"/>
-        </ion-avatar>
-        <ion-label>
-          <h1>Junior</h1>
-          <p>Jorge</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="del(item)">Delete</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    </ion-list>
-
   </ion-card>
 </ion-content>
 
 <!-- fab placed to the top end -->
-<ion-fab vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button color="success" [routerLink]="['novo-contato']">
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="verdefluorescente" >
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
+
 
 
 
