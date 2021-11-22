@@ -1,31 +1,28 @@
+ion-header{
+  ion-toolbar{
+    padding: 10px;
+    }
+    ion-title{
+
+
+    }
+  }
+
 ion-card{
   padding: 0px;
   margin: 15px;
   border: 0px;
-}
-ion-list{
-  padding: 0px;
-  background-color: black;
-
-}
-h1{
-  font-weight: bold;
+  size: 20;
 }
 
-ion-toolbar{
-  color: rgb(81, 255, 0);
-  height: 70px;
-
+ion-footer{
+  ion-toolbar{
+    padding: 10px 20px;
+  }
 }
 
-ion-header{
-  color: black;
-}
-ion-item {
-  color: black;
-}
 
-ion-title{
-  padding: 50px 30px ;
-}
+
+
+
 

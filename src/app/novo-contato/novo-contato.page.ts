@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { TodosContatos } from './../models/TodosContatos.model';
+import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -6,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './novo-contato.page.html',
   styleUrls: ['./novo-contato.page.scss'],
 })
-export class NovoContatoPage implements OnInit {
+export class NovoContatoPage  {
 
-  constructor() { }
+  constructor(public alertController: AlertController,public toastController: ToastController) { }
 
-  ngOnInit() {
-  }
+
 
 }

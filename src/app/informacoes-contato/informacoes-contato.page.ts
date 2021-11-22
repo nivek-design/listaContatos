@@ -22,9 +22,10 @@ export class InformacoesContatoPage  {
       foto: 'https://scontent.fumu2-2.fna.fbcdn.net/v/t1.6435-9/49274263_2106440106108826_2590806147908763648_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFXiqliyTvXZ2I1z3CEEL-YMDFlaKe0It4wMWVop7Qi3liLOYI-B0UekWaOsCfxq4kGvXRQnbxYpn3MdXFL40Sl&_nc_ohc=v6AyKtVK2gcAX9m--nK&_nc_ht=scontent.fumu2-2.fna&oh=da60eaa1f57dbc2a21ad87bf1f590fcc&oe=61BA7A6B',
       informacoes: 'moro em londrina paraná, tenho 27 anos, estudo Analise e desenvolvimento de sistemas',
       pagina: '/informacoes-contato',
-      email: ''
+      email: 'nivekdesign@outlook.com'
 
     }
+
 
 
     ];

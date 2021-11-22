@@ -1,32 +1,50 @@
-<ion-content [fullscreen]="true" color='dark'>
 
 
-  <ion-header collapse="condense">
 
-    <ion-toolbar color="dark">
+    <ion-toolbar color="dark" >
 
-      <ion-button color="success"  >
-        <ion-icon name="arrow-back-outline"></ion-icon >
-        <ion-back-button text=""></ion-back-button >
-      </ion-button>
-
-      <ion-title size="medium">Info do Contato</ion-title>
+      <ion-header>
+      <ion-title size="medium" position="middle">Info do Contato</ion-title>
+      </ion-header>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
     </ion-toolbar>
-  </ion-header>
+
+    <ion-content [fullscreen]="true" color='preto'>
   <ion-card >
     <ion-list *ngFor="let contatos of listaContatos">
 
-      <ion-item color="black" [routerLink]="contatos.pagina">
+      <ion-item color="dark" [routerLink]="contatos.pagina">
         <ion-label>
 
           <ion-card-content >{{contatos.nome}} {{contatos.sobrenome}}</ion-card-content>
 
-          <h1>Celular</h1>
+          <h1>Celular:</h1>
           <ion-card-content >{{contatos.celular}}</ion-card-content>
-          <p>{{contatos.informacoes}}</p>
+          <h1>E-mail:</h1>
+          <ion-card-content >{{contatos.email}}</ion-card-content>
 
         </ion-label>
       </ion-item>
     </ion-list>
   </ion-card>
+
+  <ion-card >
+    <ion-list *ngFor="let contatos of listaContatos">
+      <ion-item color="dark" [routerLink]="contatos.pagina">
+        <ion-label>
+          <h1>Informações:</h1>
+          <h2 >{{contatos.informacoes}}</h2>
+
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-button slot="start">
+    <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-button>
+
+
 </ion-content>
